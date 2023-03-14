@@ -1,14 +1,18 @@
-package model;
+package application;
+
+import model.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static service.Service.*;
+
 public class Market {
-    private static Scanner sc = new Scanner(System.in);
-    private static ArrayList<Product> products;
-    private static Map<Product, Integer> cart;
+    public static Scanner sc = new Scanner(System.in);
+    public static ArrayList<Product> products;
+    public static Map<Product, Integer> cart;
 
     public static void main(String[] args) {
         products = new ArrayList<>();
@@ -16,7 +20,7 @@ public class Market {
         menu();
     }
 
-    private static void  menu(){
+    public static void  menu(){
         System.out.println("---------------------------------------");
         System.out.println("-------- WELCOME TO ZÉ MARKET ---------");
         System.out.println("---------------------------------------");
@@ -32,20 +36,20 @@ public class Market {
 
         switch (option){
             case 1:
-                RegisterProducts();
+                registerProducts();
                 break;
             case 2:
-                ListProducts();
+                listProducts();
                 break;
             case 3:
-                PurchaseProducts();
+                purchaseProducts();
                 break;
             case 4:
-                CartProducts();
+                cartProducts();
                 break;
             case 5:
                 System.out.println("Check back often!");
-                System.exit();
+                System.exit(0);
                 break;
             default:
                 System.out.println("Invalidation option!");

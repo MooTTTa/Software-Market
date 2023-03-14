@@ -11,6 +11,7 @@ public class Product {
     private Double price;
 
     public Product(String name, Double price) {
+        this.id = count;
         this.name = name;
         this.price = price;
         Product.count += 1;
@@ -37,8 +38,8 @@ public class Product {
     }
 
     public String toString(){
-    return "Id" + getId()
-            + "\nName" + getName()
-            + "\nPrice" + Utils.doubleToString(getPrice());
+    return "Id: " + getId()
+            + "\nName: " + getName()
+            + "\nPrice: " + Utils.doubleToString(getPrice());
     }
 }
