@@ -3,6 +3,8 @@ package model;
 
 import utils.Utils;
 
+import java.util.Objects;
+
 public class Product {
     private static int count = 1;
 
@@ -35,6 +37,19 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return id == product.id && Objects.equals(name, product.name) && Objects.equals(price, product.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price);
     }
 
     public String toString(){
