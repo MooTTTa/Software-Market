@@ -16,7 +16,7 @@ public class Service {
     private Map<Product, Integer> cart = new HashMap<>();
 
     public void registerProducts() {
-        System.out.println("Quantos produtos deseja cadastrar: ");
+        System.out.println("How many products do you want to register: ");
         int qtdProd = sc.nextInt();
         for (int i = 0; i < qtdProd; i++) {
             System.out.println("Name of product: ");
@@ -54,7 +54,7 @@ public class Service {
                 System.out.println(p + "\n");
             }
 
-            System.out.println("Insira os codigos dos produtos que deseja inserir no carrinho: ");
+            System.out.println("Enter the codes of the products you want to add to the cart: ");
             int id = sc.nextInt();
 
             for (Product p : products) {
@@ -97,23 +97,23 @@ public class Service {
         do {
             boolean isPresent = false;
 
-            System.out.println("Qual produto deseja remover: ");
+            System.out.println("Which product do you want to remove: ");
             int id = sc.nextInt();
             for (Product p : products) {
                 if (p.getId() == id) {
                     isPresent = true;
                     products.remove(p);
-                    System.out.println("Produto removido com sucesso!");
+                    System.out.println("Product removed successfully!");
                     break;
                 }
             }
 
             if (!isPresent){
-                System.out.println("Produto não encontrado.");
+                System.out.println("Product not found.");
             }
 
-            System.out.println("Deseja remover outro produto digite: 0");
-            System.out.println("Deseja sair digite: 1");
+            System.out.println("Do you want to remove another product type: 0");
+            System.out.println("Do you want to exit type: 1");
             option = sc.nextInt();
 
         } while (option != 1);
@@ -122,12 +122,12 @@ public class Service {
 
     public void finishPurchase() {
         Double valueOfPurchase = 0.0;
-        System.out.println("Seus produtos: ");
+        System.out.println("Your products: ");
         for (Product p : products) {
             int qtd = cart.get(p);
             valueOfPurchase += p.getPrice() * qtd;
             System.out.println(p);
-            System.out.println("Quantidade: " + qtd);
+            System.out.println("Ammount: " + qtd);
             System.out.println("---------------");
         }
         System.out.println("The value you purchase is: " + Utils.doubleToString(valueOfPurchase));
